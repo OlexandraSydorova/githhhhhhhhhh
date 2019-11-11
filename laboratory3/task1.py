@@ -4,42 +4,45 @@
 """
 
 """
-param: 
+Написати програму, що приймає строку та натуральне число - довжину слова. 
+Вивести нову строку, у якій слова обраної довжини починаються з великої літери.
 """
 
-print("Пінда Марія Володимирівна \nГрупа КМ-92 \nЛабораторна робота №3 \n")
-print("Рядки \nЗаміна першої малої літери на заголовну в словах, що мають обрану довжину \n")
-print("Варіант 12\n")
-
-import re
+from validators.validators_library import is_integer
+from validators.validators_library import integer_validator
+from validators.validators_library import get_integer_greater_than
 import string
 
-def is_integer(text):
-    return bool(re.match(r"^[-+]{0,1}\d+$", text))
-
-def integer_validator(prompt):
-    var = input(prompt)
-    while not is_integer(var):
-        var = input(prompt)
-    return int(var)
-
-def get_integer_greater_than(prompt, number):
-    digit = integer_validator(prompt)
-    while digit <= number:
-        digit = integer_validator(prompt)
-    return digit
-
 def create_words(text):
+    """
+    This function splits text into objects - words
+    :param text: string
+    :return: list with str objects - words
+    Example:
+    >>>print(create_words('winnie the pooh'))
+    ['winnie', 'the', 'pooh']
+    """
     words = text.split(' ')
     return words
 
+
 def new_text(words):
+    """
+    This function creates a new string of words of selected length
+    :param words: list, select_length: int >=0
+    :return: string with capitalized words of selected length
+    Example:
+    >>>select_length = 3
+    >>>print(new_text(['winnie', 'the', 'pooh']))
+    winnie The pooh
+
+    """
     addit_text = []
     for word in create_words(text):
         if len(word) == select_length:
             word = word[0].upper() + word[1:]
         addit_text.append(word)
-    return str((' '.join(addit_text)))
+    return (' '.join(addit_text))
 
 choice = ''
 while choice.lower() != 'q':

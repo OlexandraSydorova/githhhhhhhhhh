@@ -4,30 +4,14 @@
 Використовуючи тільки операції додавання і віднімання, знайти частку від ділення без остачі N на K, а також залишок від цього ділення.
 """
 
-import re
-print("Пінда Марія Володимирівна \nГрупа КМ-92 \nЛабораторна робота №2 \n")
-print("Програмування циклічних алгоритмів \nОрганізація циклу за допомогою оператора while \n")
-print("Варіант 12\n")
-
-def is_integer(text):
-    return bool(re.match(r"^[-+]{0,1}\d+$", text))
-
-def integer_validator(prompt):
-    var = input(prompt)
-    while not is_integer(var):
-        var = input(prompt)
-    return int(var)
-
-def get_integer_greater_than(prompt, number):
-    digit = integer_validator(prompt)
-    while digit <= number:
-        digit = integer_validator(prompt)
-    return digit
+from validators.validators_library import is_integer
+from validators.validators_library import integer_validator
+from validators.validators_library import get_integer_greater_than
 
 choice = ''
 while choice.lower() != 'q':
-    dividend = get_integer_greater_than("Введіть ділене (ціле додатне число): ", 0)
-    divider = get_integer_greater_than("Введіть дільник (ціле додатне число): ", 0)
+    dividend = get_integer_greater_than("Введіть ділене (ціле додатне число): ", 1)
+    divider = get_integer_greater_than("Введіть дільник (ціле додатне число): ", 1)
 
     quotient = 0
 

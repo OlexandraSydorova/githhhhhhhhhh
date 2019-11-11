@@ -3,29 +3,9 @@
 Обчислити суму (і**2 - х**2), і від 0 до n.
 """
 
-import re
-print("Пінда Марія Володимирівна \nГрупа КМ-92 \nЛабораторна робота №2 \n")
-print("Програмування циклічних алгоритмів \nОрганізація циклу за допомогою оператора for \n")
-print("Варіант 12\n")
-
-def is_integer(x):
-    return bool(re.match(r"^[-+]{0,1}\d+$", x))
-
-
-def integer_validator(prompt):
-    var = input(prompt)
-    while not is_integer(var):
-        var = input(prompt)
-    return int(var)
-
-
-def get_integer_greater_than(prompt, number):
-    n = integer_validator(prompt)
-
-    while n < number:
-        n = integer_validator(prompt)
-
-    return n
+from validators.validators_library import is_integer
+from validators.validators_library import integer_validator
+from validators.validators_library import get_integer_greater_than
 
 choice = ''
 while choice.lower() != 'q':

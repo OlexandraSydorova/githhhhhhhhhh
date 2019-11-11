@@ -3,18 +3,8 @@
 Скласти програму, яка перевіряла б, не приводить чи сумування двох цілих чисел А і В до переповнення (тобто до результату більшого ніж 32 767).
 Якщо буде переповнення, то повідомити про це, інакше вивести суму цих чисел. Всі величини вводити з клавіатури.
 """
-import re
-print("Пінда Марія Володимирівна \nГрупа КМ-92 \nЛабораторна робота №1 \nВикористання математичних формул за виконанням певних умов\n")
-print("Варіант 12 \nПеревірка, чи не приводить сумування двох цілих чисел А і В до переповнення\n")
-
-def is_integer(text):
-    return bool(re.match(r"^[+-]{0,1}\d+$", text))
-
-def integer_validator(prompt):
-    var = input(prompt)
-    while not is_integer(var):
-        var = input(prompt)
-    return int(var)
+from validators.validators_library import is_integer
+from validators.validators_library import integer_validator
 
 choice = ''
 while choice.lower() != 'q':

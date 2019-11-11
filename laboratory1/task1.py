@@ -3,23 +3,14 @@
 Дано три змінні a, b і c. Змінити значення цих змінних так, щоб в a зберігалося значення a + b,
 в b зберігалася різниця старих значень c-a, а в c зберігалося сума старих значень a + b + c.
 """
-import re
-print("Пінда Марія Володимирівна \nГрупа КМ-92 \nЛабораторна робота №1 \nОбчислення в математичних задачах \nВаріант 12 \nЗмінення значень змінних\n")
-
-def is_float(text):
-    return bool(re.match(r"^[-+]?(\d*[.])?\d+$", text))
-
-def integer_validator(prompt):
-    var = input(prompt)
-    while not is_float(var):
-        var = input(prompt)
-    return float(var)
+from validators.validators_library import float_validator
+from validators.validators_library import is_float
 
 choice = ''
 while choice.lower() != 'q':
-    a = integer_validator("Введіть число a: ")
-    b = integer_validator("Введіть число b: ")
-    c = integer_validator("Введіть число с: ")
+    a = float_validator("Введіть число a: ")
+    b = float_validator("Введіть число b: ")
+    c = float_validator("Введіть число с: ")
 
     q = a  # Вводимо допоміжні змінні
     w = b

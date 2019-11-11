@@ -5,17 +5,8 @@ F(x) =
 якщо х <= 3: -x**2 + 3*x + 9;
 якщо х > 3: x/(x**2 + 1).
 """
-import re
-print("Пінда Марія Володимирівна \nГрупа КМ-92 \nЛабораторна робота №1 \nОбчислення функції, в залежності від введеного значення х \nВаріант 12 \n")
-
-def is_integer(text):
-    return bool(re.match(r"^[-+]{0,1}\d+$", text))
-
-def integer_validator(prompt):
-    var = input(prompt)
-    while not is_integer(var):
-        var = input(prompt)
-    return int(var)
+from validators.validators_library import is_integer
+from validators.validators_library import integer_validator
 
 choice = ''
 while choice.lower() != 'q':
